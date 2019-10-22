@@ -3,20 +3,22 @@
 module.exports = {
     root: true,
     parserOptions: {
-        parser: 'babel-eslint',
-        'ecmaFeatures': {
-            'jsx': true
+        parser: '@typescript-eslint/parser',
+        ecmaFeatures: {
+            jsx: true
         }
     },
     env: {
         browser: true,
+        jest: true
     },
     extends: [
         'plugin:react/recommended',
         // https://github.com/standard/standard/blob/master/docs/RULES-en.md
         'standard'
     ],
-    'plugins': [
+    plugins: [
+        '@typescript-eslint',
         'react'
     ],
     // add your custom rules here
@@ -24,6 +26,7 @@ module.exports = {
         // allow async-await
         'indent': 'off',
         'generator-star-spacing': 'off',
+        'no-undef': 'error',
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'space-before-function-paren': 'off'
