@@ -1,5 +1,8 @@
 class State {
-    itemList = {}
+    fetchedData = []
+    isFetching = false
+    isLoading = false
+    errorMsg = ''
 }
 
 export default State
