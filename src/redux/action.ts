@@ -35,7 +35,11 @@ export const getItemLists = (pageNum: number) => {
       }
     }).then((result: any) => {
       const response: any = result.data
-      return dispatch(getItemListSuccess(response.resultData))
+      if (response.status) {
+        return dispatch(getItemListSuccess(response.resultData))
+      } else {
+        return dispatch(getItemListFailure(response.msg))
+      }
     }).catch( () => {
       return dispatch(getItemListFailure('何も見つかりませんでした'))
     })
@@ -54,8 +58,11 @@ export const searchItemLists = (pageNum: number, searchWord: string) => {
       }
     }).then((result: any) => {
       const response: any = result.data
-
-      return dispatch(getItemListSuccess(response.resultData))
+      if (response.status) {
+        return dispatch(getItemListSuccess(response.resultData))
+      } else {
+        return dispatch(getItemListFailure(response.msg))
+      }
     }).catch(() => {
       return dispatch(getItemListFailure('何も見つかりませんでした'))
     })
