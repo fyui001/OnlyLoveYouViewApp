@@ -54,9 +54,10 @@ export const searchItemLists = (pageNum: number, searchWord: string) => {
       }
     }).then((result: any) => {
       const response: any = result.data
+
       return dispatch(getItemListSuccess(response.resultData))
     }).catch(() => {
-      return dispatch(getItemListFailure('何も見つかりません'))
+      return dispatch(getItemListFailure('何も見つかりませんでした'))
     })
   }
 }
