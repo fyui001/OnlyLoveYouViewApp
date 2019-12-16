@@ -5,7 +5,7 @@ import Pagination from 'react-js-pagination'
 import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { getItemLists, searchItemLists } from '../redux/action'
 import '../style/Main.css'
-import { Table } from 'react-bootstrap'
+import {Spinner, Alert, Table} from 'react-bootstrap'
 
 
 interface State {
@@ -71,9 +71,11 @@ class Content extends React.Component<Props & Dispatch, State> {
   public render() {
 
     if (this.props.isLoading) {
-      return <h1>読み込み中...</h1>
+      return (
+        <Spinner animation="grow" variant="info" />
+      )
     } else if (!this.props.isFetching) {
-      return <h1>何も見つかりません</h1>
+      return <Alert variant="danger">何も見つかりませんでした</Alert>
     }
 
     return (

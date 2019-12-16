@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Main from './Main'
+import About from './component/About'
 import Content from './component/Content'
 import {Provider} from 'react-redux'
 import {applyMiddleware, createStore} from 'redux'
@@ -21,8 +22,9 @@ ReactDOM.render(
         <Main />
         <Switch>
           <Route exact={true} path="/" component={Content}/>
+          <Route exact={true} path="/about" component={About}/>
           <Route exact={true} path="/a/:pageNum" component={Content}/>
-          <Route exact={true} path="/search/:word/" component={Content}/>
+          <Route exact={true} path="/search/:word" component={Content}/>
           <Route exact={true} path="/search/:word/:pageNum" component={Content}/>
         </Switch>
       </div>
