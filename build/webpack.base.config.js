@@ -10,9 +10,9 @@ rm.sync(path.join(__dirname, '..', 'prod'))
 rm.sync(path.join(__dirname, '..', 'dist'))
 
 module.exports = {
-    entry: {
+    /*entry: {
         app: ['@babel/polyfill', './src/index.tsx']
-    },
+    },*/
     output: {
         path: path.join(__dirname, '..', 'dist')
     },

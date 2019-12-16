@@ -1,11 +1,12 @@
 import * as React from 'react'
 import * as Redux from 'redux'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import Pagination from 'react-js-pagination'
-import {RouteComponentProps, withRouter} from 'react-router-dom'
-import {getItemLists, searchItemLists} from '../redux/action'
+import { RouteComponentProps, withRouter } from 'react-router-dom'
+import { getItemLists, searchItemLists } from '../redux/action'
 import '../style/Main.css'
-import {Table} from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
+
 
 interface State {
   activePage: number
