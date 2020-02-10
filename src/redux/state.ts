@@ -1,8 +1,6 @@
-class State {
-    fetchedData = []
-    isFetching = false
-    isLoading = false
-    errorMsg = ''
+export default {
+  fetchedData: {},
+  isFetching: false,
+  isLoading: false,
+  errorMsg: ''
 }
-
-export default State

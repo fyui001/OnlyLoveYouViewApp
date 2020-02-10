@@ -1,61 +1,36 @@
-import * as React from 'react'
-import { FormControl, Button, Navbar, Form, Nav} from 'react-bootstrap'
+import { FormControl, Button, Navbar, Form, Nav } from 'react-bootstrap'
+import React, { useCallback, useState } from 'react'
+import { useHistory } from 'react-router'
 
-interface State {
-  searchWord: string
+export default function Main() {
+  const history = useHistory()
+  const [searchWord, setSearchWord] = useState<string>('')
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchWord(event.target.value)
+    },
+    [setSearchWord]
+  )
+  const handleSearch = useCallback(() => {
+    history.push(searchWord !== '' ? `/search/${searchWord}` : '/')
+  }, [history, searchWord])
+  const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }, [])
+  return (
+    <div className="main">
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/a/1">お前しか好きじゃない</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/about">About</Nav.Link>
+        </Nav>
+        <Form onSubmit={handleSubmit} inline>
+          <FormControl className="search_input" placeholder="検索" onChange={handleChange} />
+          <Button variant="outline-light" value={searchWord} onClick={handleSearch}>
+            検索
+          </Button>
+        </Form>
+      </Navbar>
+    </div>
+  )
 }
-
-class Main extends React.Component<{}, State> {
-
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      searchWord: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  public handleChange(e: any) {
-    this.setState({
-      searchWord: e.target.value
-    })
-  }
-
-  public handleSearch(word: string) {
-    if (word !== '') {
-      window.location.href = `/search/${word}`
-    } else {
-      window.location.href = '/'
-    }
-  }
-
-  public handleSubmit(e: any) {
-      e.preventDefault()
-  }
-
-  public render() {
-
-    return (
-      <div className="main">
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href='/a/1'>お前しか好きじゃない</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="/about">About</Nav.Link>
-          </Nav>
-          <Form onSubmit={this.handleSubmit} inline>
-            <FormControl
-              className="search_input"
-              placeholder="検索"
-              onChange={this.handleChange}
-            />
-            <Button variant="outline-light" value={this.state.searchWord} onClick={() => this.handleSearch(this.state.searchWord)}>検索</Button>
-          </Form>
-        </Navbar>
-
-      </div>
-    )
-  }
-}
-
-export default Main
