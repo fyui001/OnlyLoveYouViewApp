@@ -1,7 +1,7 @@
 import { Action, Dispatch } from 'redux'
 import { fetchOnlyLoveYou, FetchOnlyLoveYouResponse, fetchOnlyLoveYouSearch } from '../client/onlyLoveYouAPI'
 import { ThunkAction } from 'redux-thunk'
-import State from './state'
+import { RootStateType } from './state'
 
 enum ActionTypes {
   GET_ITEM_LIST_REQUEST = 'GET_ITEM_LIST_REQUEST',
@@ -38,7 +38,7 @@ export const getItemListFailure = (errorMsg: string) => {
   }
 }
 
-export const getItemListsAsync = (pageNum: number): ThunkAction<void, typeof State, undefined, Actions> => {
+export const getItemListsAsync = (pageNum: number): ThunkAction<void, RootStateType, undefined, Actions> => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch(getItemListRequest())
     try {
@@ -57,7 +57,7 @@ export const getItemListsAsync = (pageNum: number): ThunkAction<void, typeof Sta
 export const searchItemListsAsync = (
   pageNum: number,
   searchWord: string
-): ThunkAction<void, typeof State, undefined, Actions> => {
+): ThunkAction<void, RootStateType, undefined, Actions> => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch(getItemListRequest())
     try {

@@ -1,7 +1,7 @@
-import State from './state'
+import State, { RootStateType } from './state'
 import { Actions } from './action'
 
-export default function reducer(state = { ...State }, action: Actions) {
+export default function reducer(state = { ...State }, action: Actions): RootStateType {
   switch ('type' in action && action.type) {
     case 'GET_ITEM_LIST_REQUEST':
       return {
