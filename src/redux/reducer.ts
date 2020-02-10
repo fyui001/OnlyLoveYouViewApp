@@ -1,23 +1,23 @@
-import State from './state'
+import State, { RootStateType } from './state'
+import { Actions } from './action'
 
-export default function reducer(state = new State(), action: any) {
-  switch (action.type) {
+export default function reducer(state = { ...State }, action: Actions): RootStateType {
+  switch ('type' in action && action.type) {
     case 'GET_ITEM_LIST_REQUEST':
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isLoading: true
-      })
+      }
     case 'GET_ITEM_LIST_SUCCESS':
-      return Object.assign({}, state, {
-        fetchedData: action.response,
-        isFetching: true,
-        isLoading: false
-      })
+      return {
+        ...state,
+        ...action.payload
+      }
     case 'GET_ITEM_LIST_FAILURE':
-      return Object.assign({}, state, {
-        isFetching: false,
-        isLoading: false,
-        errorMsg: action.errorMsg
-      })
+      return {
+        ...state,
+        ...action.payload
+      }
     default:
       return state
   }
