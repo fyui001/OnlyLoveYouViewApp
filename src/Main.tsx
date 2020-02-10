@@ -1,6 +1,7 @@
 import { FormControl, Button, Navbar, Form, Nav } from 'react-bootstrap'
 import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router'
+import { LinkContainer } from 'react-router-bootstrap'
 
 export default function Main() {
   const history = useHistory()
@@ -20,9 +21,13 @@ export default function Main() {
   return (
     <div className="main">
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/a/1">お前しか好きじゃない</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>お前しか好きじゃない</Navbar.Brand>
+        </LinkContainer>
         <Nav className="mr-auto">
-          <Nav.Link href="/about">About</Nav.Link>
+          <LinkContainer to="/about">
+            <Nav.Link>About</Nav.Link>
+          </LinkContainer>
         </Nav>
         <Form onSubmit={handleSubmit} inline>
           <FormControl className="search_input" placeholder="検索" onChange={handleChange} />

@@ -10,7 +10,7 @@ import React, { useCallback, useEffect } from 'react'
 export default function Content() {
   const history = useHistory()
   const { pageNum, word } = useParams()
-  const page = pageNum ? 1 : Number(pageNum)
+  const page = pageNum ? Number(pageNum) : 1
   const fetchedData = useSelector((state: RootStateType) => state.fetchedData)
   const isFetching = useSelector((state: RootStateType) => state.isFetching)
   const isLoading = useSelector((state: RootStateType) => state.isLoading)
