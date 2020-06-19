@@ -1,7 +1,7 @@
 export interface RootStateType {
   fetchedData: {
     current_page: number
-    data: { UserName: string; Content: string; Love: string; Guild: string; create_at: string }[]
+    data: { user: string; content: string; love: string; guild: string; created_at: string }[]
     first_page_url: string
     from: number
     last_page: number

@@ -4,7 +4,7 @@ export interface FetchOnlyLoveYouResponse {
   status: boolean
   resultData: {
     current_page: number
-    data: { UserName: string; Content: string; Love: string; Guild: string; create_at: string }[]
+    data: { user: string; content: string; love: string; guild: string; created_at: string }[]
     first_page_url: string
     from: number
     last_page: number
@@ -30,7 +30,7 @@ export async function fetchOnlyLoveYou({
 }): Promise<FetchOnlyLoveYouResponse | FetchOnlyLoveYouResponseError> {
   const result = await axios({
     method: 'GET',
-    url: 'https://app.mogamin.net/api/only_love_you/get',
+    url: 'http://localhost/api/only_love_you/get',
     params: {
       page: page
     }
@@ -47,7 +47,7 @@ export async function fetchOnlyLoveYouSearch({
 }): Promise<FetchOnlyLoveYouResponse | FetchOnlyLoveYouResponseError> {
   const result = await axios({
     method: 'GET',
-    url: 'https://app.mogamin.net/api/only_love_you/search',
+    url: 'http://localhost/api/only_love_you/search',
     params: {
       page,
       searchKeyword

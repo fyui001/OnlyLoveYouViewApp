@@ -35,7 +35,16 @@ export default function Content() {
     [history, word]
   )
   if (isLoading) {
-    return <Spinner animation="grow" variant="info" />
+    return (
+      <div className="loading-view">
+        <div className="loading-view-description">
+          <Spinner className="loading-spinner" animation="grow" />
+          <div className="loading-text">
+            <p>ロード中...</p>
+          </div>
+        </div>
+      </div>
+    )
   } else if (!isFetching) {
     return <Alert variant="danger">何も見つかりませんでした</Alert>
   }
@@ -57,11 +66,11 @@ export default function Content() {
               fetchedData.data.map((item, index) => {
                 return (
                   <tr className="content" key={index}>
-                    <td className="user_name">{item.UserName}</td>
-                    <td className="msg_content">{item.Content}</td>
-                    <td className="love">{item.Love}</td>
-                    <td className="guild">{item.Guild}</td>
-                    <td className="date">{item.create_at.slice(0, 10)}</td>
+                    <td className="user_name">{item.user}</td>
+                    <td className="msg_content">{item.content}</td>
+                    <td className="love">{item.love}</td>
+                    <td className="guild">{item.guild}</td>
+                    <td className="date">{item.created_at.slice(0, 10)}</td>
                   </tr>
                 )
               })}
