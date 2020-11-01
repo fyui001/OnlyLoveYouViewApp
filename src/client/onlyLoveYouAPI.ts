@@ -30,7 +30,7 @@ export async function fetchOnlyLoveYou({
 }): Promise<FetchOnlyLoveYouResponse | FetchOnlyLoveYouResponseError> {
   const result = await axios({
     method: 'GET',
-    url: 'http://localhost/api/only_love_you/get',
+    url: 'https://app.fyui001.com/api/only_love_you/get',
     params: {
       page: page
     }
@@ -47,7 +47,7 @@ export async function fetchOnlyLoveYouSearch({
 }): Promise<FetchOnlyLoveYouResponse | FetchOnlyLoveYouResponseError> {
   const result = await axios({
     method: 'GET',
-    url: 'http://localhost/api/only_love_you/search',
+    url: 'https://app.fyui001.com/api/only_love_you/search',
     params: {
       page,
       searchKeyword
