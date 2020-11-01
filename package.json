@@ -49,11 +49,14 @@
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.0.1",
     "jquery": "^3.5.1",
+    "postcss-import": "^13.0.0",
     "postcss-loader": "^3.0.0",
+    "postcss-url": "^10.0.0",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.3",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
@@ -73,10 +76,10 @@
     "typesafe-actions": "^5.1.0",
     "typescript": "^3.9.5",
     "url-loader": "^4.1.0",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-html-plugin": "^0.1.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^5.1.4"
   }
 }
